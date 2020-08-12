@@ -689,17 +689,20 @@ router.post('/invasions/delete_all', async (req, res) => {
 });
 
 
-// Settings routes
+// Settings routes ?
 router.post('/settings', async (req, res) => {
     const {
         guild_id,
         icon_style,
         location,
+
+
+
         distance,
         enabled
     } = req.body;
     const user_id = defaultData.user_id;
-    const split = (location || '0,0').split(',');
+    const split = (location || '1,1').split(',');
     const lat = parseFloat(split[0]);
     const lon = parseFloat(split[1]);
     const isEnabled = enabled !== 'undefined' && enabled === 'on';
